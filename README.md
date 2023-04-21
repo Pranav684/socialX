@@ -1,16 +1,19 @@
-# quantum_it_assignment
+# socialX
 
 A new Flutter project.
 
+
+https://user-images.githubusercontent.com/71001967/233686535-3c9e7322-fab0-40c5-9b73-897e1c535cb7.mp4
+
+
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This Application is built to provide a better access to the latest news
+I have used these packages for different purposes :
+  Provider package: for state management
+  Sqfilte: for local database management 
+  firebase_auth and firebase_core : for authentication and authorization 
+  http: for api integrations
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Note:
+  The api link can expire so you can get a new one at : https://newsapi.org/
