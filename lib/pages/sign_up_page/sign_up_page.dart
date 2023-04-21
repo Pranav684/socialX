@@ -160,6 +160,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 const Text('Already have an account ?'),
                 InkWell(
                   onTap: () {
+                    controllerEmail = TextEditingController();
+                    controllerPassword = TextEditingController();
                     signInProvider.setLoginValue(true);
                   },
                   child: Text(

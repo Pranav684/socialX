@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quantum_it_assignment/authentication/firebase_auth.dart';
 import 'package:quantum_it_assignment/database/database_model.dart';
 import 'package:quantum_it_assignment/model/news_cards.dart';
+import 'package:quantum_it_assignment/server_connection/api_call.dart';
 import 'card_design.dart';
 import 'package:provider/provider.dart';
 import 'package:quantum_it_assignment/server_connection/data_controller.dart';
@@ -17,10 +18,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   waitASec() async {
-    fetchedInternalData = await DatabaseObject().fetchInternalData();
-    databaseToModel(fetchedInternalData, newsCardListInitial);
+    if (!isSigningIn) {
+      fetchedInternalData = await DatabaseObject().fetchInternalData();
+      databaseToModel(fetchedInternalData, newsCardListInitial);
+    }
   }
 
+  @override
   void initState() {
     super.initState();
     waitASec();
@@ -37,8 +41,11 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
               onPressed: () {
-                Auth().signOut();
+                setState(() {
+                  Auth().signOut();
+                });
                 deleteData();
+                Navigator.pushNamed(context, '/signInPage');
               },
               icon: const Icon(Icons.logout_rounded))
         ],

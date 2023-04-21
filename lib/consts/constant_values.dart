@@ -19,6 +19,9 @@ MaterialStateProperty<Color?>? redMaterialColor =
 
 const String apiKey = '5fab52bfa47846e0aaae67f42b01d215';
 
+bool isSigningIn = false;
+bool authError = false;
+String? errorMessage = '';
 Map decodedData = {};
 var newsTable = 'newsTable';
 Auth initialAuthState = Auth();

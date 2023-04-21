@@ -21,6 +21,11 @@ class Auth with ChangeNotifier {
   }
 
   Future<void> signOut() async {
-    return await _firebaseAuth.signOut();
+    await _firebaseAuth.signOut();
+    refresherAuth();
+  }
+
+  refresherAuth() {
+    return notifyListeners();
   }
 }

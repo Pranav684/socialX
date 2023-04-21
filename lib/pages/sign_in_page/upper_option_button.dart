@@ -29,6 +29,8 @@ class _UpperOptionButtonState extends State<UpperOptionButton> {
           children: [
             InkWell(
               onTap: () {
+                controllerEmail = TextEditingController();
+                controllerPassword = TextEditingController();
                 signInProvider.setLoginValue(true);
               },
               child: Container(
@@ -50,6 +52,8 @@ class _UpperOptionButtonState extends State<UpperOptionButton> {
             ),
             InkWell(
               onTap: () {
+                controllerEmail = TextEditingController();
+                controllerPassword = TextEditingController();
                 signInProvider.setLoginValue(false);
               },
               child: Container(

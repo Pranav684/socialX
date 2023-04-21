@@ -23,6 +23,8 @@ serverToDatabase(decodedData, DatabaseObject modelClass) async {
     );
   }
   await modelClass.modelToDatabase();
+  fetchedInternalData = await DatabaseObject().fetchInternalData();
+  databaseToModel(fetchedInternalData, newsCardListInitial);
 }
 
 databaseToModel(fetchedInternalData, NewsCardList modelClass) async {

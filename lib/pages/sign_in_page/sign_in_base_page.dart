@@ -17,8 +17,6 @@ class SignInBasePage extends StatefulWidget {
 }
 
 class _SignInBasePageState extends State<SignInBasePage> {
-  String? errorMessage = '';
-
   Future<void> signInWithEmailAndPassword() async {
     try {
       await initialAuthState.signInWithEmailAndPassword(
@@ -26,9 +24,8 @@ class _SignInBasePageState extends State<SignInBasePage> {
         password: controllerPassword.text,
       );
     } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message;
-      });
+      authError = true;
+      errorMessage = e.message;
     }
   }
 
@@ -39,14 +36,14 @@ class _SignInBasePageState extends State<SignInBasePage> {
         password: controllerPassword.text,
       );
     } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message;
-      });
+      authError = true;
+      errorMessage = e.message;
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    isSigningIn = true;
     final signInProvider = Provider.of<SignInProvider>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,

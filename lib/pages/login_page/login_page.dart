@@ -68,6 +68,7 @@ class _LoginPageState extends State<LoginPage> {
               validator: (input) {
                 return isValidPassword() ? null : "Check your Password";
               },
+              obscureText: true,
               controller: controllerPassword,
               decoration: InputDecoration(
                 labelText: 'Password',
@@ -125,6 +126,8 @@ class _LoginPageState extends State<LoginPage> {
                 const Text('Don\'t have an account ?'),
                 InkWell(
                   onTap: () {
+                    controllerEmail = TextEditingController();
+                    controllerPassword = TextEditingController();
                     signInProvider.setLoginValue(false);
                   },
                   child: Text(
